@@ -10,7 +10,7 @@ help:
 
 .PHONY: cs
 cs: vendor ## Fixes coding standard issues with php-cs-fixer
-	vendor/bin/php-cs-fixer fix --diff --diff-format=udiff --verbose
+	vendor/bin/php-cs-fixer fix --diff --verbose
 
 .PHONY: coverage
 coverage: vendor ## Collects coverage with phpunit
@@ -22,12 +22,12 @@ test: vendor ## Runs tests with phpunit
 
 .PHONY: static
 static: vendor ## Runs static analyzers
-	vendor/bin/phpstan analyze
+	vendor/bin/phpstan
 	vendor/bin/psalm
 
 .PHONY: baseline
 baseline: vendor ## Generate baseline files
-	vendor/bin/phpstan analyze --generate-baseline
+	vendor/bin/phpstan --generate-baseline
 	vendor/bin/psalm --update-baseline
 
 .PHONY: clean

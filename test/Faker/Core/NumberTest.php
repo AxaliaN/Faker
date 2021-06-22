@@ -40,6 +40,11 @@ final class NumberTest extends TestCase
         $this->faker->randomNumber(10);
     }
 
+    public function testRandomNumberHasValidNullableAutogenerate()
+    {
+        self::assertGreaterThan(0, $this->faker->randomNumber());
+    }
+
     public function testRandomNumberReturnsInteger()
     {
         self::assertIsInt($this->faker->randomNumber());
@@ -85,5 +90,10 @@ final class NumberTest extends TestCase
         self::assertGreaterThanOrEqual($min, $result);
         self::assertLessThanOrEqual($max, $result);
         self::assertLessThanOrEqual($nbMaxDecimals, strlen($parts[1]));
+    }
+
+    public function testRandomFloatHasValidNullableAutogenerate()
+    {
+        self::assertGreaterThan(0, $this->faker->randomFloat());
     }
 }
